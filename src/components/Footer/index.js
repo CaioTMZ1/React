@@ -1,14 +1,14 @@
-import styles from './Footer.module.css';
+import styles from './footer.module.css';
 
 function Footer() {
   return (
-    <header className={styles.Header}>
-      <span>Aula Senac no footer</span>
+    <footer className={styles.Footer}>
+      <span>Aula Senac no Footer</span>
       <nav>
         <a href="#">Home</a>
         <a href="#">Senac</a>
       </nav>
-    </header>
+    </footer>
   );
 }
 

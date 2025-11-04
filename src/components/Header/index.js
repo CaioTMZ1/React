@@ -1,9 +1,11 @@
-import styles from './Header.module.css';
+import styles from './header.module.css';
 
 function Header() {
   return (
     <header className={styles.Header}>
-      <span>Aula Senac</span>
+      <span>
+        Aula <span style={{ color: '#ffb347' }}>Senac</span>
+      </span>
       <nav>
         <a href="#">Home</a>
         <a href="#">Senac</a>
