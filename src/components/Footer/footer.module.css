@@ -1,24 +1,18 @@
-.Footer {
-  background-color: #00418a;
-  color: #f1f1f1;
+.footer {
+  background: linear-gradient(90deg, #b8860b, #7a5a00);
+  color: #f2d46b;
   text-align: center;
-  padding: 15px 0;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+  border-top: 2px solid #d4af37;
 }
 
-.Footer nav a {
-  color: #f1f1f1;
+.footer a {
+  color: #d4af37;
   margin: 0 10px;
   text-decoration: none;
+  font-weight: 500;
 }
 
-.Footer nav a:hover {
-  color: #ffb347;
+.footer a:hover {
+  text-shadow: 0 0 8px #d4af37;
 }

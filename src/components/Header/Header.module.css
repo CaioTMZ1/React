@@ -1,32 +1,54 @@
-.Header {
-  background-color: #0057b7;
-  color: white;
-  padding: 20px 40px;
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  background: linear-gradient(90deg, #b8860b, #7a5a00);
+  padding: 10px 50px;
+  color: #fff;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
 }
 
-.Header span {
+.logo {
   font-weight: 700;
-  font-size: 20px;
-  letter-spacing: 0.5px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
 }
 
-.Header nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: 500;
+.logo span {
+  color: #f5e1a4;
 }
 
-.Header nav a:hover {
-  color: #ffb347;
-  text-decoration: underline;
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: #2b2b2b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  width: 260px;
+  transition: 0.3s;
+}
+
+.searchBox input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+  margin-left: 6px;
+}
+
+.searchBox:hover {
+  box-shadow: 0 0 8px #d4af37;
+}
+
+.userArea {
+  color: #f2d46b;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.userArea:hover {
+  color: #fff;
 }

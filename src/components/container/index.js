@@ -1,12 +1,20 @@
-import styles from './container.module.css';
+import React from "react";
+import styles from "./container.module.css";
 
-function Container() {
+export default function Container({ filmes }) {
   return (
-    <section className={styles.Container}>
-      <h2>Componente Container</h2>
-      <p>Tela para adicionar o container</p>
-    </section>
+    <div className={styles.container}>
+      {filmes.map((f) => (
+        <div
+          key={f.id}
+          className={styles.card}
+          onClick={() => window.open(f.trailer, "_blank")}
+          title={`Assistir trailer de ${f.nome}`}
+        >
+          <img src={f.imagem} alt={f.nome} />
+          <h3>{f.nome}</h3>
+        </div>
+      ))}
+    </div>
   );
 }
-
-export default Container;

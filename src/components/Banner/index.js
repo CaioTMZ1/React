@@ -1,15 +1,16 @@
-import styles from './banner.module.css';
+import React from "react";
+import styles from "./banner.module.css";
 
-function Banner() {
+export default function Banner() {
   return (
-    <section className={styles.Banner}>
-      <span>Aula Senac no Banner</span>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Senac</a>
-      </nav>
-    </section>
+    <div className={styles.banner}>
+      <div className={styles.overlay}>
+        <div className={styles.textBox}>
+          <h1>Descubra algo incrível hoje</h1>
+          <p>Explore séries e filmes selecionados especialmente para você.</p>
+          <button className={styles.btnPlay}>Explorar Agora</button>
+        </div>
+      </div>
+    </div>
   );
 }
-
-export default Banner;

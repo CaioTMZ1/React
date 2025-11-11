@@ -1,62 +1,142 @@
-/* ===== ESTILO GLOBAL ===== */
+/* === RESET GERAL === */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #f8f9fb 0%, #ffffff 100%);
-  color: #222;
-  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
+  background: radial-gradient(circle at 20% 20%, #1a1a1a, #000);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.app {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ===== CONTEÚDO PRINCIPAL ===== */
 main {
   flex: 1;
-  padding: 80px 20px;
+  padding-bottom: 40px;
+}
+
+/* === HEADER & FOOTER === */
+header,
+footer {
+  background: linear-gradient(90deg, #b8860b, #7a5a00);
+  color: #ffffff;
   text-align: center;
-  animation: fadeIn 0.6s ease-in;
+  padding: 15px 0;
+  border: none;
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.3);
 }
 
-/* ===== ANIMAÇÃO SUAVE ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+footer {
+  margin-top: 40px;
+  border-top: 2px solid #d4af37;
 }
 
-/* ===== LINKS ===== */
-a {
-  color: #0057b7;
-  text-decoration: none;
-  font-weight: 500;
+/* === CONTEÚDO === */
+.category {
+  padding: 30px 60px;
 }
 
-a:hover {
-  color: #ff6600;
-  text-decoration: underline;
+.category h2 {
+  color: #d4af37;
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
 }
 
-/* ===== MENU DE NAVEGAÇÃO ===== */
-nav {
-  margin-top: 15px;
+/* === SCROLLBAR PERSONALIZADA === */
+::-webkit-scrollbar {
+  height: 8px;
 }
-
-nav a {
-  margin: 0 10px;
-  transition: color 0.2s;
+::-webkit-scrollbar-thumb {
+  background: #b8860b;
+  border-radius: 10px;
 }
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-  main {
-    padding: 100px 10px;
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at 70% 30%,
+    rgba(212, 175, 55, 0.15),
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes goldParticles {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
   }
-  nav a {
-    display: block;
-    margin: 8px 0;
+  50% {
+    transform: translateY(-20px) rotate(45deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+    opacity: 0.8;
   }
 }
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particles span {
+  position: absolute;
+  background: radial-gradient(circle, #d4af37 0%, rgba(212, 175, 55, 0) 70%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: goldParticles 6s infinite ease-in-out;
+  opacity: 0.4;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* trava o movimento vertical causado pelas partículas */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* garante que o ::before do banner não cause rolagem */
+.banner::before {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
