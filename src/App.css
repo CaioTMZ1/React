@@ -15,9 +15,10 @@ body {
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
+  background: radial-gradient(circle at top, #1a1a1a 20%, #000 80%);
+  color: white;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 main {
@@ -43,14 +44,15 @@ footer {
 
 /* === CONTEÚDO === */
 .category {
-  padding: 30px 60px;
+  margin-bottom: 60px;
 }
 
 .category h2 {
-  color: #d4af37;
+  color: #ffd700;
   font-size: 1.6rem;
-  margin-bottom: 16px;
-  text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
 /* === SCROLLBAR PERSONALIZADA === */
@@ -140,3 +142,6 @@ body {
   height: 100%;
 }
 
+.content {
+  padding: 40px 60px;
+}

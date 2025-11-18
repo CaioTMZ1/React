@@ -4,6 +4,21 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #b8860b transparent;
+}
+
+.container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .card {

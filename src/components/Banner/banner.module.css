@@ -1,82 +1,86 @@
 .banner {
-  height: 380px;
   position: relative;
-  background-image: linear-gradient(180deg, #000000 0%, #1a1a1a 100%),
-    url("https://www.transparenttextures.com/patterns/gold-scale.png");
-  background-blend-mode: overlay;
-  background-size: cover;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle at 30% 40%,
-    rgba(212, 175, 55, 0.25),
-    transparent 60%
-  );
-  background-size: 200% 200%;
-  animation: lightSweep 8s ease-in-out infinite;
-  filter: blur(80px);
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes lightSweep {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  height: 70vh; /* 70% da altura da tela — ajusta dinamicamente */
+  min-height: 380px; /* garante um mínimo em telas pequenas */
+  max-height: 800px; /* evita exageros em monitores muito grandes */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-image 1.5s ease-in-out;
+  border-bottom: 3px solid #b8860b;
 }
 
 .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    radial-gradient(circle at center, rgba(212, 175, 55, 0.25), transparent 70%);
+  z-index: 1;
+}
+
+.content {
   position: relative;
   z-index: 2;
   text-align: center;
   color: #fff;
+  padding: 20px;
+  animation: fadeIn 1s ease-in;
 }
 
-.textBox h1 {
-  font-size: 2.2rem;
+.content h1 {
+  font-size: clamp(1.8rem, 2vw + 1rem, 3rem); /* adapta o tamanho do título */
+  font-weight: bold;
   color: #ffd700;
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.8),
-    0 0 60px rgba(212, 175, 55, 0.3);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-.textBox p {
-  margin-top: 12px;
-  font-size: 1.1rem;
-  color: #f2d46b;
-  opacity: 0.9;
+.content p {
+  margin-top: 10px;
+  font-size: clamp(0.9rem, 1vw + 0.3rem, 1.2rem);
+  color: #ddd;
 }
 
-.btnPlay {
-  margin-top: 20px;
-  padding: 10px 24px;
-  background: linear-gradient(90deg, #b8860b, #d4af37);
-  border: none;
+.content button {
+  margin-top: 18px;
+  background: #b8860b;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 22px;
   border-radius: 25px;
-  color: #000;
-  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.btnPlay:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+.content button:hover {
+  background: #ffd700;
+  color: #000;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Ajuste extra para telas muito pequenas --- */
+@media (max-width: 768px) {
+  .banner {
+    height: 55vh;
+  }
 }

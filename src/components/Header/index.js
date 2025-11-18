@@ -1,20 +1,34 @@
+import React, { useState } from "react";
 import styles from "./header.module.css";
-import { FaSearch, FaUserCircle } from "react-icons/fa";
 
-function Header() {
+function Header({ onSearch }) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+    onSearch(value); // Atualiza em tempo real
+  };
+
   return (
     <header className={styles.header}>
-      <h1 className={styles.logo}>
-        Aula <span>Senac</span> Play
-      </h1>
+      <div className={styles.logoArea}>
+        <img src="/imagens/g_logo.png" alt="GoldPlay Logo" className={styles.logo} />
+        <h1 className={styles.title}>GoldPlay</h1>
+      </div>
 
       <div className={styles.searchBox}>
-        <FaSearch className={styles.icon} />
-        <input type="text" placeholder="Buscar filmes..." />
+        <input
+          type="text"
+          placeholder="Buscar filmes..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+        <i className="fas fa-search"></i>
       </div>
 
       <div className={styles.userArea}>
-        <FaUserCircle size={26} />
+        <i className="fas fa-user-circle"></i>
       </div>
     </header>
   );
