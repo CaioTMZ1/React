@@ -1,0 +1,204 @@
+/* === CONTAINER GERAL === */
+.favoritos-container {
+  text-align: center;
+  color: #fff;
+  padding: 50px 40px;
+  background: linear-gradient(to bottom, #000, #0d0d0d);
+  border-top: 2px solid #d4af37;
+}
+
+.favoritos-container h1 {
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* === GRID RESPONSIVO (CARDS LADO A LADO) === */
+.favoritos-grid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 35px;
+  row-gap: 40px;
+  padding-bottom: 40px;
+  scroll-behavior: smooth;
+}
+
+/* === CARD DE CADA FILME === */
+.favorito-card {
+  flex: 1 1 250px;
+  max-width: 260px;
+  background: #151515;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  border: 1px solid #2a2a2a;
+  transition: all 0.3s ease;
+  padding-bottom: 15px;
+  margin: 0 auto;
+}
+
+.favorito-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px #d4af37, 0 0 50px rgba(212, 175, 55, 0.4);
+  border-color: #d4af37;
+  z-index: 2;
+}
+
+.favorito-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  border-bottom: 2px solid #d4af37;
+}
+
+.favorito-card h3 {
+  font-size: 1.2rem;
+  color: #ffd700;
+  margin: 15px 0 10px;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+/* === BOTÕES ESTILIZADOS === */
+.favorito-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.favorito-botoes button {
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+/* Botão “Assistir”: dourado translúcido */
+.favorito-botoes .assistir {
+  background: rgba(255, 215, 0, 0.15);
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  backdrop-filter: blur(6px);
+}
+
+.favorito-botoes .assistir:hover {
+  background: linear-gradient(90deg, #ffd700, #d4af37);
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+/* Botão “Remover”: vermelho neon */
+.favorito-botoes .remover {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid #ff3b3b;
+  color: #ff4b4b;
+  backdrop-filter: blur(6px);
+}
+
+.favorito-botoes .remover:hover {
+  background: linear-gradient(90deg, #ff3b3b, #b00000);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+/* === MENSAGEM DE AÇÃO === */
+.mensagem-favorito {
+  font-size: 1.1rem;
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  animation: fadeInOut 2.5s ease forwards;
+  margin-bottom: 20px;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+/* === MENSAGEM QUANDO VAZIO === */
+.mensagem-vazia {
+  text-align: center;
+  color: #ffd700;
+  font-size: 1.3rem;
+  margin-top: 100px;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 1024px) {
+  .favoritos-grid {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorito-card {
+    max-width: 220px;
+  }
+
+  .favorito-card img {
+    height: 260px;
+  }
+
+  .favorito-botoes {
+    gap: 10px;
+  }
+
+  .favorito-botoes button {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .favoritos-container {
+    padding: 30px 15px;
+  }
+
+  .favoritos-grid {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .favorito-card {
+    max-width: 180px;
+  }
+
+  .favorito-card img {
+    height: 230px;
+  }
+
+  .favorito-botoes button {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+}

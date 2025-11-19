@@ -1,37 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./header.module.css";
 
-function Header({ onSearch }) {
-  const [searchTerm, setSearchTerm] = useState("");
+export default function Header({ onSearch }) {
+  const navigate = useNavigate();
+  const location = useLocation(); // 🔹 Captura a rota atual
 
-  const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
-    onSearch(value); // Atualiza em tempo real
+  const handleSearch = (event) => {
+    onSearch(event.target.value);
+  };
+
+  const irParaPagina = () => {
+    if (location.pathname === "/favoritos") {
+      navigate("/"); // 🔸 Se já estiver em Favoritos, volta pra Home
+    } else {
+      navigate("/favoritos"); // 🔸 Se estiver na Home, vai para Favoritos
+    }
   };
 
   return (
     <header className={styles.header}>
-      <div className={styles.logoArea}>
-        <img src="/imagens/g_logo.png" alt="GoldPlay Logo" className={styles.logo} />
-        <h1 className={styles.title}>GoldPlay</h1>
+      {/* Logo */}
+      <div className={styles.logo} onClick={() => navigate("/")}>
+        <img src="/imagens/g_logo.png" alt="Logo GoldPlay" />
+        <h1>GoldPlay</h1>
       </div>
 
-      <div className={styles.searchBox}>
-        <input
-          type="text"
-          placeholder="Buscar filmes..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-        <i className="fas fa-search"></i>
-      </div>
+      {/* Campo de busca */}
+      <input
+        className={styles.search}
+        type="text"
+        placeholder="Buscar filmes..."
+        onChange={handleSearch}
+      />
 
-      <div className={styles.userArea}>
-        <i className="fas fa-user-circle"></i>
-      </div>
+      {/* Botão de alternância */}
+      <button
+        className={styles.favButton}
+        onClick={irParaPagina}
+        title={location.pathname === "/favoritos" ? "Voltar à Home" : "Ver meus favoritos"}
+      >
+        {location.pathname === "/favoritos" ? "🏠 Voltar" : "⭐ Meus Favoritos"}
+      </button>
     </header>
   );
 }
-
-export default Header;

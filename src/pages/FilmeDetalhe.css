@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;500&display=swap');
+
+.detalhe-container {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 🔽 Fundo */
+.detalhe-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-color: #000;
+  filter: brightness(0.48) saturate(1.25);
+  transform: scale(1.02);
+  animation: zoomSlow 25s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* 🔽 Gradiente */
+.detalhe-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.92) 25%,
+    rgba(0, 0, 0, 0.6) 60%,
+    rgba(0, 0, 0, 0.05) 95%
+  );
+  z-index: 1;
+}
+
+/* 🔽 Efeito Partículas */
+.efeito-particulas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,215,0,0.12) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.35;
+  animation: brilho 12s linear infinite;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+@keyframes brilho {
+  0% { transform: translateY(0px); opacity: 0.3; }
+  50% { transform: translateY(-10px); opacity: 0.55; }
+  100% { transform: translateY(0px); opacity: 0.3; }
+}
+
+/* 🔽 Texto principal */
+.detalhe-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 48%;
+  padding-left: 6%;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* 🔽 Título */
+.titulo-filme {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 12px;
+  text-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+}
+
+/* 🔽 Linha de detalhes */
+.detalhes-extra {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #d6d6d6;
+  margin-bottom: 15px;
+}
+
+.qualidade {
+  color: #ffd700;
+  border: 1px solid #ffd700;
+  border-radius: 5px;
+  padding: 2px 8px;
+  font-size: 0.9rem;
+}
+
+/* 🔽 Barra de Relevância */
+.progresso-filme {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.progresso-filme .barra {
+  width: 180px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progresso-filme .preenchimento {
+  height: 100%;
+  background: #00e676;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.progresso-filme span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #00e676;
+  font-weight: 500;
+}
+
+/* 🔽 Descrição */
+.descricao-filme {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  max-width: 85%;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+/* 🔽 Elenco (sem imagens) */
+.elenco {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.elenco p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 0;
+}
+
+/* 🔽 Botões */
+.botoes {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.botoes button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 10px 24px;
+  transition: 0.3s ease-in-out;
+}
+
+.botoes button:nth-child(1) {
+  background: #ffd700;
+  color: #000;
+}
+
+.botoes button:nth-child(1):hover {
+  background: #fff;
+  transform: scale(1.07);
+}
+
+.botoes button:nth-child(2) {
+  background: #ff4747;
+  color: #fff;
+}
+
+.botoes button:nth-child(2):hover {
+  background: #ff6b6b;
+  transform: scale(1.07);
+}
+
+.botoes button:nth-child(3) {
+  background: #444;
+  color: #fff;
+}
+
+.botoes button:nth-child(3):hover {
+  background: #666;
+  transform: scale(1.07);
+}
+
+/* 🔽 Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomSlow {
+  from { transform: scale(1.02); }
+  to { transform: scale(1.08); }
+}
+
+/* 🔽 Responsivo */
+@media (max-width: 1000px) {
+  .detalhe-container {
+    height: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .detalhe-background {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .detalhe-info {
+    max-width: 90%;
+    padding: 10% 5%;
+  }
+
+  .titulo-filme {
+    font-size: 2.4rem;
+  }
+
+  .descricao-filme {
+    font-size: 1rem;
+  }
+}
+
+/* 🔔 Toast de aviso */
+.toast-aviso {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffd700;
+  padding: 14px 24px;
+  border-radius: 25px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  animation: fadeToast 2s ease forwards;
+  z-index: 1000;
+}
+
+@keyframes fadeToast {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 30px);
+  }
+
+}

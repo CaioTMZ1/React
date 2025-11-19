@@ -1,13 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./container.module.css";
 
 export default function Container({ filmes }) {
-  if (!filmes || filmes.length === 0)
-    return (
-      <p style={{ color: "#FFD700", textAlign: "center" }}>
-        Nenhum filme encontrado
-      </p>
-    );
+  const navigate = useNavigate();
 
   return (
     <div className={styles.container}>
@@ -15,8 +11,8 @@ export default function Container({ filmes }) {
         <div
           key={f.id}
           className={styles.card}
-          onClick={() => window.open(f.trailer, "_blank")}
-          title={`Assistir trailer de ${f.titulo}`}
+          onClick={() => navigate(`/filme/${f.id}`)}
+          title={`Ver detalhes de ${f.titulo}`}
         >
           <img src={f.imagem} alt={f.titulo} />
           <h3>{f.titulo}</h3>
